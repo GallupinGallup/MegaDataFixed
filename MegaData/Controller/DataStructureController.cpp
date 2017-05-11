@@ -31,7 +31,7 @@ DataStructureController :: DataStructureController(){
 }
 
 void DataStructureController :: start(){
-    testHashTable();
+    testGraph();
 }
 
 void DataStructureController:: testAdvancedFeatures(){
@@ -332,9 +332,18 @@ void DataStructureController:: testGraph(){
     myHobbies.addVertex("Video Games");
     myHobbies.addVertex("Engeneering");
     myHobbies.addVertex("Swimming");
-    myHobbies.addVertex("");
-    
+    myHobbies.addVertex("Hiking");
+    myHobbies.addVertex("Camping");
     
     myHobbies.addEdge(0,1);
+    myHobbies.addEdge(1,2);
+    myHobbies.addEdge(3,4);
+    myHobbies.addEdge(4,5);
+    
+    myHobbies.depthFirstTraversal(myHobbies, 0);
+    
+    cout << endl;
+    
+    myHobbies.breadthFirstTraversal(myHobbies, 0);
 }
 
