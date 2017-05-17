@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>678</x>
+      <y>522</y>
+      <w>204</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>IntNode
+--
+- nodeData : int
+- nodePointer : IntNode *
+--
++ getNodeData() : int
++ getNodePointer() : IntNode *
++ setNodeData(int value) : void
++ setNodePointer(IntNode * next) : void
+
++ IntNode() : constructor
++ IntNode(int value) : init
++ IntNode(int value, IntNode * nextNode) : init
+bg=#51366</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>372</x>
+      <y>522</y>
+      <w>204</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>IntNodeArray
+--
+- size : int
+- front : IntNode *
+
+
+--
++ IntNodeArray(int size) : init
++ setAtIndex(int index, int value) : void
++ get FromIndex(int index) : int
++ getSize() : int
+bg=#666</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>960</x>
+      <y>786</y>
+      <w>210</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Model :: Node&lt;Type&gt;
+--
+
+- nodeData : Type
+- nodePointer : Node&lt;Type&gt; *
+
+--
+
++ Node() : init
++ Node(Type value) : init
++ Note(Type data, Node&lt;Type&gt; * pointer) : init
+
++ getNodeData() : Type
++ getNodePointer() : Node&lt;Type&gt; *
++ setNodeData(Type data) : void
++ setNodePointer(Node&lt;Type&gt; * next) : void
+bg=#57161</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1422</x>
+      <y>876</y>
+      <w>288</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>Model :: Array&lt;Type&gt;
+--
+- size : int
+- front : Node&lt;Type&gt; *
+
+
+--
+inits:
++ Array() : init
++ Array(int size) : init
+
+advanced:
++ ~Array&lt;Types&gt;() : deconstructor
++ Array&lt;Type&gt;(const Array&lt;Type&gt; &amp; toBeCopied) : copy constructor
+
+Methods:
++ setAtIndex(int index, Type value) : void
++ getFromIndex(int index) : Type
+
++ getSize() : int
++ getFrontIndex(int index) : Type
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1164</x>
+      <y>864</y>
+      <w>270</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=1..n</panel_attributes>
+    <additional_attributes>430.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>366</x>
+      <y>1116</y>
+      <w>300</w>
+      <h>222</h>
+    </coordinates>
+    <panel_attributes>Model :: List&lt;Type&gt;
+--
+- size : int
+- front : Node&lt;Type&gt; *
+
+
+--
+inits:
++ List&lt;Type&gt;() : init
++ List&lt;Type&gt;(const List&lt;Type&gt; &amp; scource)) : copy init
++ ~List&lt;Types&gt;() : deconstructor
+
+Methods:
++ setAtIndex(int index, Type data) : Type
++ addAtIndex(int index, Type value) : void
++ getFromIndex(int index) : Type
++ addFront(Type value) : void
++ addEnd (Type value) : void
++ remove(int index) : Type
++ contains(Type data) : Type
++ getSize() : int
++ getFront() const : Node&lt;Type&gt; *
++ getEnd() const : Node&lt;Type&gt; *
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>870</y>
+      <w>822</w>
+      <h>354</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=0..n</panel_attributes>
+    <additional_attributes>10.0;570.0;1350.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>468</x>
+      <y>516</y>
+      <w>402</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;650.0;310.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>426</x>
+      <y>414</y>
+      <w>636</w>
+      <h>384</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>1040.0;620.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>264</x>
+      <y>252</y>
+      <w>402</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>BiDirectionalNode&lt;Type&gt;
+--
+- nodeData : Type
+- previous : BiDirectionalNode&lt;Type&gt; *
+- next : BiDirectionalNode&lt;Type&gt; *
+--
++ BiDirectionalNode() : init
++ BiDirectionalNode(Type data) : init
++ BiDirectionalNode(Type data, BiDirectionalNode&lt;Type&gt; * previous, 
+                                                       BiDirectionalNode&lt;Type&gt; * next ) : init
++ getNodeData() : Type
++ setNodeData(Type data) : void                                                       
++ getPreviousNode() : BiDirectionalNode&lt;Type&gt; * 
++ setPrviousNode(BiDirectionalNode&lt;Type&gt; * previous) : void
++ getNextNode() : BiDirectionalNode&lt;Type&gt; *
++ setNextNode(BiDirectionalNode&lt;Type&gt; * next) : void
+
+
+bg=#68156435</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1194</x>
+      <y>294</y>
+      <w>282</w>
+      <h>174</h>
+    </coordinates>
+    <panel_attributes>DoublyLinkedList&lt;Type&gt;
+--
+-front : BiDirectionalNode&lt;Type&gt;*
+-end : BiDirectionalNode&lt;Type&gt;*
+-size : int
+
+--
+
+Non virtual methods
++ getSize() const : int
++ getFront() const :  : BiDirectionalNode&lt;Type&gt;*
++ getEnd() const :  : BiDirectionalNode&lt;Type&gt;*
+
+virtual methods
+/+add(Type value)/
+/+remove(int)/
+
+bg=#3653168</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>396</x>
+      <y>0</y>
+      <w>216</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>CircularlyLinkedList
+--
+-front: BiDIrectionalNode&lt;Type&gt; *
+-end : BiDIrectionalNode&lt;Type&gt; *
+-size : int
+
+--
++ CircularList() : constructor
++ ~CircularList() : deconstructor
+
++ add(Type data) : void
++ remove(int index) : Type
+
++addAtIndex(int index, Type data) : void
+bg=#1898a3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>768</x>
+      <y>348</y>
+      <w>168</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>Queue
+--
+-front: BiDIrectionalNode&lt;Type&gt; *
+-end : BiDIrectionalNode&lt;Type&gt; *
+-size : int
+--
++ Queue() : init
++ ~Queue() : deinit
+
++ add() : void
++remove(int) : Type
+
++ dequeue() : Type
++ enqueue(Type data):void
++ peek() : Type
+
+bg=#800080</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>960</x>
+      <y>558</y>
+      <w>180</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>Stack
+--
+-front: BiDIrectionalNode&lt;Type&gt; *
+-end : BiDIrectionalNode&lt;Type&gt; *
+-size : int
+
+--
++ Stack : constuctor
++ ~Stack() : destructor
+
++ add() : void
++remove(int) : Type
+
++peek() : Type
++push(Type data) : void
++pop() : Type
+bg=#d46977</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>930</x>
+      <y>330</y>
+      <w>276</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>440.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1134</x>
+      <y>330</y>
+      <w>72</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;420.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>606</x>
+      <y>0</y>
+      <w>600</w>
+      <h>348</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>980.0;560.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>606</x>
+      <y>246</y>
+      <w>600</w>
+      <h>174</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=0..n</panel_attributes>
+    <additional_attributes>980.0;270.0;700.0;270.0;700.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1524</x>
+      <y>306</y>
+      <w>192</w>
+      <h>156</h>
+    </coordinates>
+    <panel_attributes>Model :: DoubleList&lt;Type&gt;
+--
+-front: BiDIrectionalNode&lt;Type&gt; *
+-end : BiDIrectionalNode&lt;Type&gt; *
+-size : int
+--
++DoubleList() : init
++~DoubleList() : deinit
+
+
++ add() : void
++remove(int) : Type
+
++addFront(Type data) : void
++ addEnd(Type data) : void
++ addAtIndex(int index, Type data) : void
++ addAtIndexFast(int index, Type data) : void
+
+bg=#0099cc</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1188</x>
+      <y>330</y>
+      <w>348</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;560.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>738</x>
+      <y>1074</y>
+      <w>300</w>
+      <h>204</h>
+    </coordinates>
+    <panel_attributes>BinarySearchTreeNode&lt;Type&gt;
+--
+-nodeData : Type(inherited)
+- rootPointer : BinarySearchTreeNode&lt;Type&gt;*
+-leftChildPointer : BinarySearchTreeNode&lt;Type&gt;*
+-rightChildPointer : BinarySearchTreeNode&lt;Type&gt;*
+--
+
++BinarySearchTreeNode() : init
++BinarySearchTreeNode(type data) : init
+
++getRootPointer() : BinarySearchTreeNode&lt;Type&gt;*
++getLeftChildPointer() : BinarySearchTreeNode&lt;Type&gt;*
++getRightChildPointer() : BinarySearchTreeNode&lt;Type&gt;*
+
+
++setRootPointer( BinarySearchTreeNode&lt;Type&gt;* root) : void
++setLeftChildPointer(BinarySearchTreeNode&lt;Type&gt;* left) : void
++setRightChildPointer( BinarySearchTreeNode&lt;Type&gt;* right) : void
+
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>894</x>
+      <y>960</y>
+      <w>102</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1446</x>
+      <y>1386</y>
+      <w>330</w>
+      <h>228</h>
+    </coordinates>
+    <panel_attributes>Model :: Tree&lt;Type&gt;
+--
++getSize() : int
++getHeight() : int
++getComplete() : bool
++getBalanced() : bool
+
++inOrderTraversal() : void
++preOrderTraversal() : void
++postOrderTraversal() : void
+
++insert(Type) : void
++ contains(Type) :void
++ remove(Type) : void
+
+bg=#f54332</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>426</x>
+      <y>1482</y>
+      <w>456</w>
+      <h>396</h>
+    </coordinates>
+    <panel_attributes>Model :: BinarySearchTree&lt;Type&gt;
+--
+
+-root : BinarySearchTreeNode&lt;Type&gt;*
+-size : int(inherited)
+-height : int(inherited)
+-complete : bool(inherited)
+-balanced : bool(inherited)
+--
+
++ BinarySearchTree() : init
++ ~BinarySearchTree() : init
+
++getRoot() : BinarySearchTreeNode&lt;Type&gt;*
++setRootPointer( BinarySearchTreeNode&lt;Type&gt;* root) : void
+
+- calculateSize(BinarySearchTreeNode&lt;ype&gt;*) : int
++ getSize() : int
+
+-inOrderTraversal() : void
+-preOrderTraversal() : void
+-postOrderTraversal() : void
+- removeNode(BinarySearchTreeNode&lt;ype&gt;*) : void
+
++inOrderTraversal() : void
++preOrderTraversal() : void
++postOrderTraversal() : void
++printToFile() : void
+
++insert(Type) :void
++contains(Type) : void
++remove(Type) : void
+bg=#6634245</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>1272</y>
+      <w>432</w>
+      <h>222</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>700.0;10.0;10.0;350.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>1476</y>
+      <w>960</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>1580.0;230.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>462</x>
+      <y>726</y>
+      <w>396</w>
+      <h>204</h>
+    </coordinates>
+    <panel_attributes>Model :: AVLTree&lt;Type&gt;
+--
+# root : BinarySearchTreeNode&lt;Type&gt;*(inherited)
+--
+
++AVLTree() : init
++~AVLTree() : de-init
+
+-leftRotation(BinarySearchTreeNode&lt;Type&gt;* parent) : BinarySearchTreeNode&lt;Type&gt;*
+-rightRotation(BinarySearchTreeNode&lt;Type&gt;* first) : BinarySearchTreeNode&lt;Type&gt;*
+-leftRightRotation(BinarySearchTreeNode&lt;Type&gt;* first) : BinarySearchTreeNode&lt;Type&gt;*
+-rightLeftRotation(BinarySearchTreeNode&lt;Type&gt;* first) : BinarySearchTreeNode&lt;Type&gt;*
+
+-insertNode( BinarySearchTreeNode&lt;Type&gt; * Type value) :  BinarySearchTreeNode&lt;Type&gt;*
+-removeNode( BinarySearchTreeNode&lt;Type&gt; * Type value) :  BinarySearchTreeNode&lt;Type&gt;*
+-balanceSubTree( BinarySearchTreeNode&lt;Type&gt;*) :  BinarySearchTreeNode&lt;Type&gt;*
+-heightDifference( BinarySearchTreeNode&lt;Type&gt;* parent) :int
+
++remove(Type) : void
++insert(Type) : void
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>732</x>
+      <y>774</y>
+      <w>138</w>
+      <h>366</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;590.0;210.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>354</x>
+      <y>936</y>
+      <w>204</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>HashNode&lt;Type&gt;
+--
+- data : Type
+- key : long
+--
++ HashNode() : init
++ HashNode(Type data) : init
+
++ getData() : Type
++ const getKey : long
++ setData(Type data)  : void
+bg=#fff</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>552</x>
+      <y>906</y>
+      <w>420</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>680.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>888</y>
+      <w>306</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>Model :: HashTable&lt;Type&gt;
+--
+- capacity : long
+- size : long
+- efficiencyPercentage : double
+- hashTableStorage : HashNode&lt;Type&gt; **
+- isPrime(long sampleNumber) : bool
+- resize() : void
+- nextPrime() : long
+- findPosition(HashNode&lt;Type&gt; * data) : long
+- handleCollision(HashNode&lt;Type&gt; * data, long currentPosition) : long
+
+--
++ HashTable() : init
++ ~HashTable() : deinit
++ add(Type data) : void
++ remove(Type data) : bool
++ displayContents() : void
++ setSize() : long
+bg=#681356</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>90</x>
+      <y>930</y>
+      <w>372</w>
+      <h>156</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>600.0;10.0;10.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1170</x>
+      <y>1146</y>
+      <w>330</w>
+      <h>228</h>
+    </coordinates>
+    <panel_attributes>Model :: Graph&lt;Type&gt;
+--
+- MAXIMUM = 20 : static const int
+- adjacencyMatrix[MAXIMUM][MAXIMUM]: bool 
+- graphData[MAXIMUM] : Type 
+- vertexCount : int 
+- depthFirstTraversal(Graph&lt;Type&gt; graph, int vertex, bool markedVerticies[]) : void
+--
+ + Graph();
+ + ~Graph();
+    
+ + addVertex(const Type&amp; value): void
+ + addEdge(int source, int target): void
+ + removeEdge(int source, int target): void
+ + Type&amp; operator [] (int vertex)
+ + Type operator [] (int vertex) const
+ + size() const : int
+ + areConnected(int source, int target)const : bool
+ + std::set&lt;int&gt; neighbors(int vertex) const : std::set&lt;int&gt;
+ + depthFirstTraversal(Graph&lt;Type&gt; graph, int vertex): void 
+ + breadthFirstTraversal(Graph&lt;Type&gt; graph, int vertex :void 
+
+bg=#f0983</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1164</x>
+      <y>960</y>
+      <w>18</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;310.0</additional_attributes>
+  </element>
+</diagram>
