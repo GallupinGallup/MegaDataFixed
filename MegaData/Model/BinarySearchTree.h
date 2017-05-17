@@ -107,7 +107,7 @@ void BinarySearchTree<Type> ::postOrderTraversal()
     
 }
 
-
+//committing my UML
 
 template <class Type>
 void BinarySearchTree<Type> :: inOrderTraversal(BinarySearchTreeNode<Type> * inStart)
